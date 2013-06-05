@@ -76,6 +76,9 @@ public abstract class NewAccountAbstractPageFragment extends Fragment {
                 try {
                     JSONObject errorObj = new JSONObject(jsonString);
                     message = getErrorMessageForErrorCode((String)errorObj.get("error"));
+                    if(message == null) {//Not one of our common errors. Show the error message from the server.
+                        message = (String)errorObj.get("message");
+                    }
                 } catch (JSONException e) {
                     Log.d("ErrorListener", String.format("Error parsing the error message :( : %s", e));
                     message = getString(R.string.error_generic);
@@ -168,6 +171,7 @@ public abstract class NewAccountAbstractPageFragment extends Fragment {
         if(errorCode.equals("username_invalid"))
             return getString(R.string.username_invalid);
         
-        return getString(R.string.unknown_error);
+        return null;
+        //return getString(R.string.unknown_error);
     }
 }

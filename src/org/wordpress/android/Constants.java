@@ -11,8 +11,8 @@ public class Constants {
     public static String readerTopicsURL = "http://en.wordpress.com/reader/mobile/v2/?template=topics";
     public static String readerDetailURL = "https://en.wordpress.com/wp-admin/admin-ajax.php?action=wpcom_load_mobile&template=details&v=2";
     
-    public static String wpcomXMLRPCURL = "http://ercolid.wordpress.com/xmlrpc.php";
-    public static String wpcomLoginURL = "http://ercolid.wordpress.com/wp-login.php";
+    public static String wpcomXMLRPCURL = "https://wordpress.com/xmlrpc.php";
+    public static String wpcomLoginURL = "https://wordpress.com/wp-login.php";
     
     public static final String URL_TOS = "http://en.wordpress.com/tos";
     
