@@ -50,8 +50,8 @@ public class WordPress extends Application {
     public static final String ACCESS_TOKEN_PREFERENCE="wp_pref_wpcom_access_token";
     public static final String WPCOM_USERNAME_PREFERENCE="wp_pref_wpcom_username";
     public static final String WPCOM_PASSWORD_PREFERENCE="wp_pref_wpcom_password";
-    private static final String APP_ID_PROPERTY="oauth.app_id";
-    private static final String APP_SECRET_PROPERTY="oauth.app_secret";
+    public static final String APP_ID_PROPERTY="oauth.app_id";
+    public static final String APP_SECRET_PROPERTY="oauth.app_secret";
     private static final String APP_REDIRECT_PROPERTY="oauth.redirect_uri";
 
     public static String versionName;

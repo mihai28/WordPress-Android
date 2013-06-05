@@ -46,6 +46,7 @@ import org.wordpress.android.R;
 import org.wordpress.android.WordPress;
 import org.wordpress.android.models.Blog;
 import org.wordpress.android.ui.accounts.NewAccountActivity;
+import org.wordpress.android.ui.accounts.WelcomeActivity;
 import org.wordpress.android.ui.comments.CommentsActivity;
 import org.wordpress.android.ui.notifications.NotificationsActivity;
 import org.wordpress.android.ui.posts.EditPostActivity;
@@ -437,7 +438,7 @@ public abstract class WPActionBarActivity extends SherlockFragmentActivity {
         if (currentBlog == null || getBlogNames().length == 0) {
             Log.d(TAG, "No accounts configured.  Sending user to set up an account");
             mShouldFinish = false;
-            Intent i = new Intent(this, NewAccountActivity.class);
+            Intent i = new Intent(this, WelcomeActivity.class);
             startActivityForResult(i, ADD_ACCOUNT_REQUEST);
             return;
         }

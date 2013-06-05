@@ -9,13 +9,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.wordpress.android.Constants;
 import org.wordpress.android.R;
 import org.wordpress.android.WordPress;
 import org.wordpress.android.util.DeviceUtils;
 
 public class AboutActivity extends Activity implements OnClickListener {
 
-    private static final String URL_TOS = "http://en.wordpress.com/tos";
     private static final String URL_AUTOMATTIC = "http://automattic.com";
     private static final String URL_PRIVACY_POLICY = "/privacy";
 
@@ -47,7 +47,7 @@ public class AboutActivity extends Activity implements OnClickListener {
         if (id == R.id.about_url) {
             uri = Uri.parse(URL_AUTOMATTIC);
         } else if (id == R.id.about_tos) {
-            uri = Uri.parse(URL_TOS);
+            uri = Uri.parse(Constants.URL_TOS);
         } else if (id == R.id.about_privacy) {
             uri = Uri.parse(URL_AUTOMATTIC + URL_PRIVACY_POLICY);
         } else {

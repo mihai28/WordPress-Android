@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF" >
+    
+    <RelativeLayout
+        android:layout_width="-1dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" >
+
+	     <TextView android:id="@+id/text1"
+	          style="?android:textAppearanceLarge"
+	          android:textStyle="bold"
+	          android:layout_width="match_parent"
+	          android:layout_height="wrap_content"
+	          android:layout_marginBottom="16dp" />
+	     
+		<ImageView
+		     android:id="@+id/wordpress_logo_blog"
+		     android:layout_width="fill_parent"
+		     android:layout_height="200dp"
+		     android:scaleType="centerInside"
+		     android:layout_below="@id/text1"
+		     android:src="@drawable/new_account_logo" >
+		 </ImageView>
+     
+	   	<TextView android:id="@+id/create_blog_wpcom"
+	          style="?android:textAppearanceMedium"
+	          android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          android:layout_centerHorizontal="true"
+	          android:textStyle="normal"
+	          android:text="@string/create_blog_wpcom"
+	          android:layout_below="@id/wordpress_logo_blog"
+	          android:layout_marginTop="10dp" 
+	          android:layout_marginBottom="10dp" />
+        
+        <EditText
+            android:id="@+id/site_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/create_blog_wpcom"
+            android:hint="@string/title"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/site_url"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/site_title"
+            android:hint="@string/add_account_blog_url"
+            android:inputType="textUri" />
+
+        <Spinner
+		    android:id="@+id/langs_spinner"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" 
+		    android:layout_below="@id/site_url" />
+        
+        <Spinner
+		    android:id="@+id/privacy_spinner"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" 
+		    android:layout_below="@id/langs_spinner" 
+		    android:visibility="gone"
+		    />
+        
+        <TextView
+            android:id="@+id/l_agree_terms_of_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/privacy_spinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:shadowColor="#FFFFFF"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="@string/agree_terms_of_service"
+            android:textColor="#444444"
+            android:textSize="12sp"/>
+
+        <LinearLayout
+            android:layout_below="@id/l_agree_terms_of_service"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            
+            <Button
+	            android:id="@+id/prev_button"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="20dp"
+	            android:text="@string/action_previous" />
+                    
+         	<Button
+	            android:id="@+id/next_button"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="20dp"
+	            android:text="@string/action_next" />
+         	
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

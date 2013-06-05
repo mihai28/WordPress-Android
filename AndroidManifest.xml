@@ -185,6 +185,7 @@
                 <category android:name="org.wordpress.android" />
             </intent-filter>
         </receiver>
+        <activity android:name=".ui.accounts.WelcomeActivity"></activity>
     </application>
 
 </manifest>
