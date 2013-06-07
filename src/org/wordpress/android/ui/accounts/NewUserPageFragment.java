@@ -3,16 +3,13 @@ package org.wordpress.android.ui.accounts;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,16 +84,7 @@ public class NewUserPageFragment extends NewAccountAbstractPageFragment {
         public void onClick(View v) {
         
             //TODO: The following lines ensure that no .com account are available in the app - change this!!!!
-            SharedPreferences.Editor editor = PreferenceManager
-                    .getDefaultSharedPreferences(getActivity()).edit();
-                editor.remove(WordPress.WPCOM_USERNAME_PREFERENCE);
-                editor.remove(WordPress.WPCOM_PASSWORD_PREFERENCE);
-                editor.remove(WordPress.ACCESS_TOKEN_PREFERENCE);
-                editor.commit();
-                WordPress.wpDB.deactivateAccounts();
-                WordPress.wpDB.updateLastBlogId(-1);
-                WordPress.currentBlog = null;
-                WordPress.restClient.clearAccessToken();
+            WordPress.signOut(getActivity());
             
             //reset the data
             NewAccountActivity act = (NewAccountActivity)getActivity();
