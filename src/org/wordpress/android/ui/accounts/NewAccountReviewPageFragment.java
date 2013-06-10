@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
+import org.wordpress.android.Config;
 import com.wordpress.rest.RestRequest;
 
 import org.json.JSONException;
@@ -115,8 +115,8 @@ public class NewAccountReviewPageFragment extends NewAccountAbstractPageFragment
         params.put("password", act.validatedPassword);
         params.put("email", act.validatedEmail);
         params.put("validate", "1");
-        params.put("client_id", WordPress.config.getProperty(WordPress.APP_ID_PROPERTY));
-        params.put("client_secret", WordPress.config.getProperty(WordPress.APP_SECRET_PROPERTY));
+        params.put("client_id", Config.OAUTH_APP_ID);
+        params.put("client_secret", Config.OAUTH_APP_SECRET);
         restClient.post(path, params, null, new ResponseHandler(ResponseHandler.VALIDATE_USER), new ErrorListener());
     }
     
@@ -129,8 +129,8 @@ public class NewAccountReviewPageFragment extends NewAccountAbstractPageFragment
         params.put("lang_id", act.validatedLanguageID);
         params.put("public", act.validatedPrivacyOption);
         params.put("validate", "1");
-        params.put("client_id", WordPress.config.getProperty(WordPress.APP_ID_PROPERTY));
-        params.put("client_secret", WordPress.config.getProperty(WordPress.APP_SECRET_PROPERTY));
+        params.put("client_id", Config.OAUTH_APP_ID);
+        params.put("client_secret", Config.OAUTH_APP_SECRET);
         restClient.post(path, params, null, new ResponseHandler(ResponseHandler.VALIDATE_SITE), new ErrorListener());
     }
     
@@ -142,8 +142,8 @@ public class NewAccountReviewPageFragment extends NewAccountAbstractPageFragment
         params.put("password", act.validatedPassword);
         params.put("email", act.validatedEmail);
         params.put("validate", "0");
-        params.put("client_id", WordPress.config.getProperty(WordPress.APP_ID_PROPERTY));
-        params.put("client_secret", WordPress.config.getProperty(WordPress.APP_SECRET_PROPERTY));
+        params.put("client_id", Config.OAUTH_APP_ID);
+        params.put("client_secret", Config.OAUTH_APP_SECRET);
         restClient.post(path, params, null, new ResponseHandler(ResponseHandler.CREATE_USER), new ErrorListener());
     }
 
@@ -167,8 +167,8 @@ public class NewAccountReviewPageFragment extends NewAccountAbstractPageFragment
         params.put("lang_id", act.validatedLanguageID);
         params.put("public", act.validatedPrivacyOption);
         params.put("validate", "false");
-        params.put("client_id", WordPress.config.getProperty(WordPress.APP_ID_PROPERTY));
-        params.put("client_secret", WordPress.config.getProperty(WordPress.APP_SECRET_PROPERTY));
+        params.put("client_id", Config.OAUTH_APP_ID);
+        params.put("client_secret", Config.OAUTH_APP_SECRET);
         WordPress.restClient.post(path, params, null, new ResponseHandler(ResponseHandler.CREATE_SITE), new ErrorListener());
     }
     

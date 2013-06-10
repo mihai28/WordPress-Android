@@ -31,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 
+import org.wordpress.android.Config;
 import org.wordpress.android.Constants;
 import org.wordpress.android.R;
 import org.wordpress.android.WordPress;
@@ -109,8 +110,8 @@ public class NewBlogPageFragment extends NewAccountAbstractPageFragment {
             
             params.put("public", visibility);
             params.put("validate", "1");
-            params.put("client_id", WordPress.config.getProperty(WordPress.APP_ID_PROPERTY));
-            params.put("client_secret", WordPress.config.getProperty(WordPress.APP_SECRET_PROPERTY));
+            params.put("client_id", Config.OAUTH_APP_ID);
+            params.put("client_secret", Config.OAUTH_APP_SECRET);
             
             restClient.post(path, params, null,
                     new RestRequest.Listener() {
