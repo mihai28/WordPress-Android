@@ -119,8 +119,16 @@ public class WordPress extends Application {
         
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(ctx);
         String uuid = settings.getString("wp_pref_notifications_uuid", null);
-        if (uuid == null)
+        if (uuid == null){
+            Log.e("WORDPRESS", "wp_pref_notifications_uuid is null");
             return;
+        }
+        
+        if(token == null || token.trim().length() == 0) {
+            Log.e("WORDPRESS", "Invalid PNs token");
+            return;
+        }
+        
         Object[] params = {
                 settings.getString(WPCOM_USERNAME_PREFERENCE, ""),
                 WordPressDB.decryptPassword(settings.getString(WPCOM_PASSWORD_PREFERENCE, "")),
@@ -138,12 +146,17 @@ public class WordPress extends Application {
             }
 
             public void onFailure(long id, XMLRPCException error) {
-                Log.v("WORDPRESS", error.getMessage());
+                Log.e("WORDPRESS", error.getMessage());
             }
         }, "wpcom.mobile_push_register_token", params);
     }
     
     public static void unregisterWPComToken(Context ctx, String token) {
+        
+        if(token == null || token.trim().length() == 0) {
+            Log.e("WORDPRESS", "Invalid PNs token");
+            return;
+        }
         
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(ctx);
         Object[] params = {
@@ -161,7 +174,7 @@ public class WordPress extends Application {
             }
 
             public void onFailure(long id, XMLRPCException error) {
-                Log.v("WORDPRESS", error.getMessage());
+                Log.e("WORDPRESS", error.getMessage());
             }
         }, "wpcom.mobile_push_unregister_token", params);
     }
